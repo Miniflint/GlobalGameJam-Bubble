@@ -5,6 +5,7 @@
 /Build/
 /Builds/
 /UserSettings/
+/Logs/
 
 # User-specific files
 .vs/
