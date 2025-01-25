@@ -18,8 +18,8 @@ public class GameManager : MonoBehaviour
 	public float food = 10;
 	public float energy = 0;
 	public float fortynium = 0;
-	public int humans = 2;
-	public int availableHumans = 2;
+	public int humans = 1;
+	public int availableHumans = 1;
 
 	public TextMeshProUGUI oxygenText;
 	public TextMeshProUGUI foodText;
