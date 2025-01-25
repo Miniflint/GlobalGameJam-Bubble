@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\module_manager.cs" />
     <Compile Include="Assets\Scripts\Notify.cs" />
+    <Compile Include="Assets\Scripts\constants.cs" />
     <Compile Include="Assets\Scripts\Data.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
   </ItemGroup>

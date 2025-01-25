@@ -29,4 +29,5 @@ public class module_manager
 		module.position = spawned_object.transform.position;
 		Manager.Data.Modules_list.Add(module);
 	}
+
 }
