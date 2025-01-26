@@ -6,6 +6,7 @@ using UnityEditor;
 using System.Collections.Specialized;
 using System.Collections;
 using UnityEngine.Android;
+using System.Collections.Generic;
 
 // J'ai modif le fichier pour en faire deux classes distinctes et separer la gestion des ressources et la gestion des modules
 // ca empeche pas qu'ils soient lies !
@@ -27,6 +28,11 @@ public class GameManager : MonoBehaviour
 	public TextMeshProUGUI fortyniumText;
 	public TextMeshProUGUI humanText;
 	public TextMeshProUGUI availableHumansText;
+
+	public GameObject BuildMenu;
+	public GameObject PanelBuildMenu;
+	public GameObject MainUI;
+	public GameObject modules;
 
 	void Start()
 	{
@@ -75,11 +81,13 @@ public class GameManager : MonoBehaviour
 		{
 			Notify.Alert.printInfo("Impossible d'envoyer des explorateurs sans qu'ils ne soient disponibles !");
 		}
-
 	}
 
-
-
-
+	public void OpenCloseBuildMenu(bool active)
+	{
+		MainUI.SetActive(!active);
+		modules.SetActive(!active);
+		BuildMenu.SetActive(active);
+	}
 }
 

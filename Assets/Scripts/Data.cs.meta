@@ -1,2 +1,14 @@
 fileFormatVersion: 2
 guid: ee82fb45cb1e72f43b2b7a1fbf48fadf
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - prefab_oxygen_module: {fileID: 6561600741757577251, guid: a147897d4f5f8464eb0f270cbcc1fd6b, type: 3}
+  - prefab_energy_module: {fileID: 6561600741757577251, guid: 9e9dfaf661303ed4d8b41a81814128cd, type: 3}
+  - prefab_rocket_module: {fileID: 6561600741757577251, guid: f53f2f54526bcfa43a010ac517fe3b03, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

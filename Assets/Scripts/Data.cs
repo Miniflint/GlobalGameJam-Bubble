@@ -5,13 +5,18 @@ using UnityEngine;
 // mais si tu pouvais renommer la classe et les dependencies... j'ai pas trop touche au code pour pas faire de betises.
 public class Manager : MonoBehaviour
 {
+	public GameObject prefab_oxygen_module;
+	public GameObject prefab_energy_module;
+	public GameObject prefab_rocket_module;
 	public class Module
 	{
-		public Vector2 position = new(0f, 0f);
+		public GameObject module_object;
+		public string module_name;
 	}
 	public static class Data
 	{
-		//liste des modules existants
-		public static List<Module> Modules_list = new();
+		//liste des module_manager existants
+		public static List<GameObject> Modules_list = new();
+		public static GameObject module_source;
 	}
 }
