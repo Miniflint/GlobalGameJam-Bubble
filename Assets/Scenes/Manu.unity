@@ -1564,12 +1564,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 960b2f3b2f028f2478bb226a49306e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oxygen: 10
-  food: 10
-  energy: 0
-  fortynium: 0
-  humans: 1
-  availableHumans: 1
   oxygenText: {fileID: 732508596}
   foodText: {fileID: 1137892681}
   energyText: {fileID: 507414286}
@@ -2536,8 +2530,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0023193, y: 375.3123}
-  m_SizeDelta: {x: 1920, y: 225.6154}
+  m_AnchoredPosition: {x: 0.0023193, y: 408.24985}
+  m_SizeDelta: {x: 1920, y: 159.7402}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1633446321
 MonoBehaviour:
