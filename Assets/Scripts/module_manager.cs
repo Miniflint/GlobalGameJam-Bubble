@@ -6,7 +6,39 @@ public class module_manager : MonoBehaviour
 {
 	public GameObject ui;
 	public GameObject modules_parent;
+	public GameObject rocket;
 	public int index_direction;
+	public string type;
+
+	private void Start()
+	{
+		switch (type)
+		{
+			case "rocket":
+				ui.GetComponent<GameManager>().Consume_human(1);
+				ui.GetComponent<GameManager>().Add_rocket(1);
+				Manager.Data.rocket_list.Add((this.GameObject(), 1));
+				GameObject spawned_rocket = GameObject.Instantiate(rocket);
+				Vector3 destination = this.transform.position;
+				//destination.y += 2;
+				destination.z -= 1;
+				spawned_rocket.transform.position = destination;				
+				break;
+			case "food_prod":
+				ui.GetComponent<GameManager>().Add_wheat(1);
+				break;
+			case "oxygen_prod":
+				ui.GetComponent<GameManager>().Add_tree(1);
+				break;
+			case "oxygen_tank":
+				ui.GetComponent<GameManager>().Add_tank(1);
+				break;
+			default:
+				break;
+		}
+		if (type == "food_prod" || type == "oxygen_prod" || type == "oxygen_tank")
+			ui.GetComponent<GameManager>().Consume_human(2);
+	}
 	private void OnMouseDown()
 	{
 		Debug.Log(ui);
@@ -63,6 +95,16 @@ public class module_manager : MonoBehaviour
 			obj.GetComponent<module_manager>().modules_parent = modules_parent;
 		}
 		Vector3 new_module_position;
+		/*switch (this.type)
+		{
+			case "food_prod":
+				new_module_position.x = reference_module.transform.position.x + (referenceSpriteRenderer.bounds.size.x / 2) * direction.x;
+				new_module_position.y = reference_module.transform.position.y + (referenceSpriteRenderer.bounds.size.y / 4) * direction.y;
+				new_module_position.z = (direction.y + referenceSpriteRenderer.transform.position.z);
+				break;
+			default:
+				break;
+		}*/
 		new_module_position.x = reference_module.transform.position.x + (referenceSpriteRenderer.bounds.size.x / 2) * direction.x;
 		new_module_position.y = reference_module.transform.position.y + (referenceSpriteRenderer.bounds.size.y / 4) * direction.y;
 		new_module_position.z = (direction.y + referenceSpriteRenderer.transform.position.z);
