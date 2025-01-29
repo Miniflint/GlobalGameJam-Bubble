@@ -4,7 +4,7 @@ using UnityEngine;
 public class ResourceManager : MonoBehaviour
 {
 	public static ResourceManager Instance;
-	private float lastUpdateTimestamp = 0f;
+	public float lastUpdateTimestamp = 0f;
 
 	[SerializeField] private float stepDuration = 3f; // step time
 
@@ -128,10 +128,14 @@ public class ResourceManager : MonoBehaviour
 	{
 		foreach (var resource in resources.Values)
 		{
-			resource.amount += resource.productionRate - resource.consumptionRate;
-			resource.amount = Mathf.Max(resource.amount, 0);
-			Debug.Log("Resources updated !");
+			if (resource.productionRate != 0 || resource.consumptionRate != 0)
+			{
+				resource.amount += (resource.productionRate - resource.consumptionRate) * stepDuration;
+				resource.amount = Mathf.Max(resource.amount, 0); // Pas de ressources négatives
+			}
 		}
+
+		Debug.Log("Ressources updated !");
 	}
 
 	public void AddProductionRate(string name, float amount)
@@ -145,7 +149,7 @@ public class ResourceManager : MonoBehaviour
 
 	public void SetStepDuration(float newDuration)
 	{
-		if (newDuration > 0)
+		if (newDuration >= 0)
 		{
 			stepDuration = newDuration;
 			Debug.Log($"step : {stepDuration} sec."); //TODO - create a popup to inform the player of the time before the next step / time passed
@@ -154,5 +158,28 @@ public class ResourceManager : MonoBehaviour
 		{
 			Debug.LogWarning("step should be positive !");
 		}
+	}
+
+	public float StepDuration
+	{
+		get => stepDuration;
+		set
+		{
+			if (value >= 0)
+			{
+				stepDuration = value;
+				Debug.Log($"stepDuration Updated : {stepDuration}");
+			}
+			else
+			{
+				Debug.LogWarning("stepDuration not positive !");
+			}
+		}
+	}
+
+	public void AdjustRatesForModule(string resourceProduced, float production, string resourceConsumed, float consumption)
+	{
+		AddProductionRate(resourceProduced, production);
+		AddProductionRate(resourceConsumed, -consumption);
 	}
 }

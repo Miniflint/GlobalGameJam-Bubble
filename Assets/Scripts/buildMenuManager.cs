@@ -195,7 +195,7 @@ public class BuildMenuManager : MonoBehaviour
 
 		if (newModule != null)
 		{
-			referenceModule = newModule; // ✅ Met à jour la référence pour les prochains modules
+			referenceModule = newModule;
 		}
 
 		ClearPlacementIndicators();
